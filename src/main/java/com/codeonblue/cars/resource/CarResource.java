@@ -3,6 +3,7 @@ package com.codeonblue.cars.resource;
 import com.codeonblue.cars.model.Car;
 import com.codeonblue.cars.service.CarService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class CarResource {
     }
 
     @GetMapping({"","/"})
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Car>> getAllCars(){
         List<Car> list = carService.findAll().stream()
                 .filter(this::isCool)
