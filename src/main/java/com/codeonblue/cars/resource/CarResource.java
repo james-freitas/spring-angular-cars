@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/cars")
 public class CarResource {
@@ -22,7 +23,6 @@ public class CarResource {
     }
 
     @GetMapping({"","/"})
-    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Car>> getAllCars(){
         List<Car> list = carService.findAll().stream()
                 .filter(this::isCool)
