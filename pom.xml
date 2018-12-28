@@ -11,8 +11,8 @@
 	<groupId>com.codeonblue</groupId>
 	<artifactId>cars</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<name>cars</name>
+	<description>Spring Boot and Angular application</description>
 
 	<properties>
 		<java.version>1.8</java.version>
