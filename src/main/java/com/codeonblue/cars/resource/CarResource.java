@@ -2,6 +2,8 @@ package com.codeonblue.cars.resource;
 
 import com.codeonblue.cars.model.Car;
 import com.codeonblue.cars.service.CarService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +18,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/cars")
 public class CarResource {
 
+    Logger logger = LoggerFactory.getLogger(CarResource.class);
+
     private final CarService carService;
 
     public CarResource(CarService carService) {
@@ -27,6 +31,7 @@ public class CarResource {
         List<Car> list = carService.findAll().stream()
                 .filter(this::isCool)
                 .collect(Collectors.toList());
+        logger.info(" >>> Application endpoint accessed - Request: GET - 200");
         return ResponseEntity.ok().body(list);
     }
 
